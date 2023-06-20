@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Register } from './users';
 
-function App() {
+export function App() {
     const [token, setToken] = useState('');
 
     console.log("LOG FROM APP", token);
@@ -13,5 +13,3 @@ function App() {
         </div>
     )
 }
-
-export default App;

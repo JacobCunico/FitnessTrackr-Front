@@ -1,8 +1,8 @@
 // needs: POST/users/register, POST/users/login, GET/users/me, and GET/users/:username/routines
 import React, { useState } from "react";
-import { registerUser } from '../ajax-requests';
+import { registerUser } from '../Requests';
 
-function Register({ setToken }) {
+export function Register({ setToken }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -34,5 +34,3 @@ function Register({ setToken }) {
         </form>
     )
 }
-
-export default Register;
