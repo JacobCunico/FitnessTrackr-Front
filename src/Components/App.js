@@ -1,7 +1,9 @@
 // functionally the homepage, has room for the other nav routes
 import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { Register, Login } from './';
+import { Register, Login, Routines } from './';
+
+
 
 function App() {
     const [token, setToken] = useState('');
@@ -18,6 +20,10 @@ function App() {
                 <Route 
                     path='/login' 
                     element={<Login setToken={setToken} />}
+                />
+                <Route 
+                    path='/routines' 
+                    element={<Routines setToken={setToken} />}
                 />
             </Routes>
         </div>
