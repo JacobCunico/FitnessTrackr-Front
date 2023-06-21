@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 function Routines({ routines }) {
 
     return (
-        <div>{routines.name}</div>
+        <span>{routines.name}</span>
     );
 }
 

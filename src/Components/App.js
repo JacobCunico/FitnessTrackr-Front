@@ -54,10 +54,6 @@ function App() {
     return (
         <div>
             <Routes>
-            <Route 
-                    path='/' 
-                    element={<Routines routines={setRoutines}/>}
-                />
                 <Route 
                     path='/register' 
                     element={<Register setToken={setToken} />}
@@ -68,7 +64,7 @@ function App() {
                 />
                 <Route 
                     path='/routines' 
-                    element={<Routines />}
+                    element={<Routines routines={routines}/>}
                 />
                 <Route 
                     path='/activities' 
