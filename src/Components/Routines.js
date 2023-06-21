@@ -1,14 +1,29 @@
-import { routinesData } from '../Requests';
+import React, { Fragment } from "react";
 
-async function Routines() {
-    const results = await routinesData();
-    if (results.success) {
-        setPosts(results.data.posts);
+function Routines({ routines }) {
+
+    return (
+    <>
+    {
+        routines && routines.map((routine) => {
+            return (
+                <Fragment key={routine._id}>
+                {
+                (
+                        <>
+                        <p style={{padding: "1px 40px", fontSize: "20px", flexFlow: "row wrap", border: "solid black" }}>
+                            <span style={{ fontWeight: "bold"}}> Title:</span> {routine.name}
+                            <span style={{ fontWeight: "bold"}}> Description:</span> {routine.description}</p>
+                        </>
+                    )
+
+                }
+                </Fragment>
+            )
+        })  
     }
-
-    return(
-        <h1>hello</h1>
-    )
+    </>
+    );
 }
 
 export default Routines

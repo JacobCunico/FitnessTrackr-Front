@@ -314,4 +314,4 @@ export const routineActivityDelete = async (routineActivityId, token) => {
   }
 }
 
-routineActivityDelete();
+//routineActivityDelete();
