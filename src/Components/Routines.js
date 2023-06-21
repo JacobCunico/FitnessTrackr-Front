@@ -3,8 +3,10 @@ import React, { Fragment } from "react";
 function Routines({ routines }) {
 
     return (
-        <span>{routines.name}</span>
-    );
+        <p>
+        <span>hello: {routines.name}</span>
+        </p>
+    )
 }
 
 export default Routines
