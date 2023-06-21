@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { registerUser } from '../Requests';
 
-export function Register({ setToken }) {
+function Register({ setToken }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -33,4 +33,6 @@ export function Register({ setToken }) {
             <button type='submit'>Submit</button>
         </form>
     )
-}
+};
+
+export default Register;
