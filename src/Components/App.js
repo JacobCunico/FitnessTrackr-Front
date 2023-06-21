@@ -56,7 +56,7 @@ function App() {
             <Routes>
             <Route 
                     path='/' 
-                    element={<Routines />}
+                    element={<Routines routines={setRoutines}/>}
                 />
                 <Route 
                     path='/register' 
