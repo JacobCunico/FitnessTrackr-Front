@@ -1,6 +1,6 @@
 import { routinesData } from '../Requests';
 
-async function getRoutines() {
+async function Routines() {
     const results = await routinesData();
     if (results.success) {
         setPosts(results.data.posts);
@@ -11,4 +11,4 @@ async function getRoutines() {
     )
 }
 
-export default getRoutines
+export default Routines
