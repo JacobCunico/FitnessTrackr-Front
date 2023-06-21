@@ -1,6 +1,6 @@
 // functionally the homepage, has room for the other nav routes
 import React, { useState } from 'react';
-import { Register } from './users';
+import { Register } from './register';
 
 export function App() {
     const [token, setToken] = useState('');
