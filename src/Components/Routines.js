@@ -1,20 +1,27 @@
 import React, { Fragment } from "react";
 
-function Routines({ routines }) {
 
+function Routines({ routines, getRoutines }) {
+getRoutines();
+console.log("LOG FROM ROUTINE", routines);
     return (
         <>
         {
-            routines.map((routines) => {
+            <p>
+                <p>HELLO WORLD</p>
+                {
+            routines.map((routine) => {
                 return(
                         <p>
-                        <span>hello: {routines.name}</span>
+                        <span>hello: {routine.name}</span>
                         </p>
-            )
+                )
             })
+        }
+            </p>
         }
         </>
     )
-}
+};
 
 export default Routines

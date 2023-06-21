@@ -64,7 +64,7 @@ function App() {
                 />
                 <Route 
                     path='/routines' 
-                    element={<Routines routines={routines}/>}
+                    element={<Routines routines={routines} getRoutines={getRoutines}/>}
                 />
                 <Route 
                     path='/activities' 

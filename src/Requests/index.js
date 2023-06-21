@@ -181,7 +181,7 @@ export const routinesData = async () => {
   });
   
   const result = await response.json();
-  console.log(result);
+  //console.log(result);
   return result
   } catch (err) {
   console.error(err);

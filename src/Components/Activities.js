@@ -7,7 +7,7 @@ import { activitiesData } from "../Requests";
 async function Activities() {
     const results = await activitiesData();
     if (results.success) {
-        
+
     }
 
     return(
