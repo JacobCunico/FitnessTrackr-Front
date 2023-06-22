@@ -4,6 +4,7 @@ import { login } from '../Requests';
 function Login({ setToken, navigate }) {
         const [username, setUsername] = useState('');
         const [password, setPassword] = useState('');
+        
     
         async function handleSubmit(event) {
             event.preventDefault();
@@ -11,9 +12,10 @@ function Login({ setToken, navigate }) {
             
             const results = await login(user);
     
-            if (results.success) {
-                setToken(results.data.token);
-                window.localStorage.setItem('token', results.data.token);
+            if (results) {
+                console.log("LOG FROM LOGIN", results)
+                setToken(results.token);
+                window.localStorage.setItem('token', results.token);
                 navigate('/');
                 alert('Login Successfull');
             } else {alert('incorrect Username or Password')};

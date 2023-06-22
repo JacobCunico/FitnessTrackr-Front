@@ -5,3 +5,4 @@ export { default as Login } from './Login';
 export { default as Routines } from './Routines';
 export { default as Activites } from './Activities';
 export { default as Nav } from './Nav';
+export { default as MyRoutines } from './MyRoutines';

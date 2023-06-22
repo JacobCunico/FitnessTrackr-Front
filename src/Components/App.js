@@ -1,7 +1,7 @@
 // functionally the homepage, has room for the other nav routes
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { Register, Login, Routines, Activites } from './';
+import { Register, Login, Routines, Activites, Nav, MyRoutines } from './';
 import { routinesData, usersMe } from '../Requests';
 
 
@@ -11,6 +11,8 @@ function App() {
     const [routines, setRoutines] = useState([]);
     const [user, setUser] = useState({});
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const navigate = useNavigate();
 
     console.log("LOG FROM APP", token);
 
@@ -29,7 +31,7 @@ function App() {
         async function getUser() {
             const results = await usersMe(token);
             if (results.success) {
-                setUser(results.data)
+                setUser(results)
             }
         }
 
@@ -53,6 +55,11 @@ function App() {
 
     return (
         <div>
+            <Nav 
+            setToken={setToken} 
+            setIsLoggedIn={setIsLoggedIn} 
+            isLoggedIn={isLoggedIn} 
+            />
             <Routes>
                 <Route 
                     path='/register' 
@@ -60,15 +67,19 @@ function App() {
                 />
                 <Route 
                     path='/login' 
-                    element={<Login setToken={setToken} />}
+                    element={<Login setToken={setToken} navigate={navigate} />}
                 />
                 <Route 
                     path='/' 
-                    element={<Routines routines={routines}/>}
+                    element={<Routines />}
                 />
                 <Route 
                     path='/activities' 
                     element={<Activites />}
+                />
+                <Route 
+                    path='/MyRoutines' 
+                    element={<MyRoutines />}
                 />
             </Routes>
         </div>

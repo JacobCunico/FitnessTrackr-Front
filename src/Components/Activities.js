@@ -24,7 +24,7 @@ const fetchActivities = async () => {
   };
 
 
-export default function Tabs() {
+async function renderActivities() {
     const [activities, setActivities] = useState([]);
     useEffect(() => {
       const getActivities = async () => {
@@ -44,3 +44,5 @@ export default function Tabs() {
       </div>
     );
   }
+
+  export default renderActivities

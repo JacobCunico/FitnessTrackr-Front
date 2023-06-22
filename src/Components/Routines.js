@@ -3,21 +3,20 @@ import { useEffect, useState } from 'react';
 import { routinesData } from "../Requests";
 
  function Routines() {
-    const [activities, setActivities] = useState([]);
+    const [routines, setRoutines] = useState([]);
     useEffect(() => {
-      const getActivities = async () => {
+      const getRoutines = async () => {
         const result = await routinesData();
-        setActivities(result);
-        console.log(result);
+        setRoutines(result);
       };
-      getActivities();
+      getRoutines();
     }, []);
 
     return (
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', border: "solid black"  }}>
-        {activities.map((routine) => (
+        {routines.map((routine) => (
           <div key={routine.id} style={{ marginLeft: '10px' }}>
-            <h2>HELLO{ routine.name}</h2>
+            <h2>{ routine.name}</h2>
             <p>{routine.goal}</p>
           </div>
         ))}
