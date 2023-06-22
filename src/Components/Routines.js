@@ -1,8 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 
-function Routines({ routines, getRoutines }) {
-getRoutines();
+function Routines({ routines }) {
 console.log("LOG FROM ROUTINE", routines);
     return (
         <>

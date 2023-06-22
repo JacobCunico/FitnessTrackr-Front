@@ -63,8 +63,8 @@ function App() {
                     element={<Login setToken={setToken} />}
                 />
                 <Route 
-                    path='/routines' 
-                    element={<Routines routines={routines} getRoutines={getRoutines}/>}
+                    path='/' 
+                    element={<Routines routines={routines}/>}
                 />
                 <Route 
                     path='/activities' 
