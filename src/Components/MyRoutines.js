@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { routinesPost } from "../Requests"; 
 
-    function MyRoutines({ token, getRoutines }) {
+function MyRoutines({ token, getRoutines }) {
     const [name, setName] = useState('');
     const [goal, setGoal] = useState('');
 
     async function handleSubmit(event) {
         event.preventDefault();
-        const post = {name, goal}
+        const newRoutine = {name, goal}
 
-        const results = await routinesPost(post, token)
+        const results = await routinesPost(token, newRoutine)
+        console.log("LOG FROM MY", results)
 
-
-        if (results.succcess) {
-            getRoutines()
+        if (results.success) {
+            getRoutines();
         } else (
-            getRoutines()
+            alert("Routine Name Already Exists")
         )
-    }
+    };
 
     return (
         <form onSubmit={handleSubmit}>
@@ -37,6 +37,6 @@ import { routinesPost } from "../Requests";
         </form>
         
     )
-    }
+}
 
 export default MyRoutines;

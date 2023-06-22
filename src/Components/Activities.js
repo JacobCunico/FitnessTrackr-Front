@@ -5,35 +5,60 @@
 import React from 'react';
 
 import { useEffect, useState } from 'react';
+import { activitiesPost, activitiesData } from '../Requests';
 
-const BASE_URL = `http://fitnesstrac-kr.herokuapp.com/api`
-const list = ['Routines', 'Activities', 'Users'];
-
-const fetchActivities = async () => {
-    try {
-      const response = await fetch(`${BASE_URL}/activities`, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const result = await response.json();
-      return result;
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  
 
 
-    export default function activities() {
+  export default function activities(token) {
+
     const [activities, setActivities] = useState([]);
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('')
+
     useEffect(() => {
+
       const getActivities = async () => {
-        const result = await fetchActivities();
+        const result = await activitiesData();
         setActivities(result);
       };
+
       getActivities();
+
     }, []);
+
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const newActivity = {name, description}
+
+      const results = await activitiesPost(token, newActivity)
+      console.log("LOG FROM MY", results)
+
+      if (results.success) {
+          activitiesData();
+      } else (
+          alert("Activity Already Exists (make sure you are logged in)")
+      )
+  };
+
     return (
+      <>
+        <form onSubmit={handleSubmit}>
+            <input
+                type='text'
+                placeholder='Enter Name'
+                value={name}
+                onChange={(event) => {setName(event.target.value)}}
+            />
+            <input
+                type='text'
+                placeholder="Enter Description"
+                value={description}
+                onChange={(event) => {setDescription(event.target.value)}}
+            />
+            <button type='submit'>Create activity</button>
+        </form>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
         {activities.map((activity) => (
           <div key={activity.id} style={{ marginLeft: '10px' }}>
@@ -42,5 +67,6 @@ const fetchActivities = async () => {
           </div>
         ))}
       </div>
+      </>
     );
-  }
+};

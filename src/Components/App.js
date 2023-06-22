@@ -78,7 +78,7 @@ function App() {
                 />
                 <Route 
                     path='/activities' 
-                    element={<Activites />}
+                    element={<Activites token={token}/>}
                 />
                 <Route 
                     path='/MyRoutines' 

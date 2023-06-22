@@ -18,6 +18,7 @@ import { routinesData } from "../Requests";
           <div key={routine.id} style={{ marginLeft: '10px' }}>
             <h2>{routine.name}</h2>
             <p>Goal: {routine.goal}</p>
+            <p>Count/Duration: {routine.count}{routine.duration}</p>
             <p>Creator: {routine.creatorName}</p>
           </div>
         ))}
