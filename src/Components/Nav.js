@@ -17,8 +17,9 @@ function Nav({ setToken, setIsLoggedIn, isLoggedIn }) {
         display: "flex",
         justifyContent: "space-around"
         }}>
-            <h1>Stranger's things</h1>
+            <h1>Fitness Trackr</h1>
             <button style={{padding: "1px 40px", backgroundColor: "green", fontSize: "20px"}}><Link to= '/'>Home</Link></button>
+            <button style={{padding: "1px 40px", backgroundColor: "green", fontSize: "20px"}}><Link to= '/Activities'>Activities</Link></button>
             {
                 isLoggedIn ? (
                     <>
