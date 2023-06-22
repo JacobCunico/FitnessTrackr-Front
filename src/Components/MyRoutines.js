@@ -1,29 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import { usersRoutines, usersMe } from '../Requests';
+import React, { useState } from "react";
+import { routinesPost } from "../Requests"; 
 
-function myRoutines() {
-const [user, setUser] = useState({});
-const [token, setToken] = useState({});
+    function MyRoutines({ token, getRoutines }) {
+    const [name, setName] = useState('');
+    const [goal, setGoal] = useState('');
 
-function tokenCheck() {
-    if (window.localStorage.getItem('token')) {
-        setToken(window.localStorage.getItem('token'));
-    }}
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const post = {name, goal}
 
-async function getUser() {
-    const results = await usersMe(token);
-    if (results.success) {
-        setUser(results)
+        const results = await routinesPost(post, token)
+
+
+        if (results.succcess) {
+            getRoutines()
+        } else (
+            getRoutines()
+        )
     }
-}
 
-const username = getUser();
-
-async function renderRoutines() {
-    const results = await usersRoutines({username, token})
     return (
-        console.log("FROM MY ROUTINES", results)
+        <form onSubmit={handleSubmit}>
+            <input
+                type='text'
+                placeholder='Enter Name'
+                value={name}
+                onChange={(event) => {setName(event.target.value)}}
+            />
+            <input
+                type='text'
+                placeholder="Enter Goal"
+                value={goal}
+                onChange={(event) => {setGoal(event.target.value)}}
+            />
+            <button type='submit'>Create Routine</button>
+        </form>
+        
     )
-};}
+    }
 
-export default myRoutines
+export default MyRoutines;

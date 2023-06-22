@@ -20,11 +20,12 @@ function Nav({ setToken, setIsLoggedIn, isLoggedIn }) {
             <h1>Fitness Trackr</h1>
             <button style={{padding: "1px 40px", backgroundColor: "green", fontSize: "20px"}}><Link to= '/'>Home</Link></button>
             <button style={{padding: "1px 40px", backgroundColor: "green", fontSize: "20px"}}><Link to= '/Activities'>Activities</Link></button>
+            <button style={{padding: "1px 40px", backgroundColor: "green", fontSize: "20px"}}><Link to= '/Routines'>Routines</Link></button>
             {
                 isLoggedIn ? (
                     <>
                     <button  style={{padding: "1px 40px", backgroundColor: "green", fontSize: "20px"}} onClick={logout}>Log Out</button>
-                    <button style={{padding: "1px 40px", backgroundColor: "green", fontSize: "20px"} }><Link to='/create-post'>Create Post</Link></button>
+                    <button style={{padding: "1px 40px", backgroundColor: "green", fontSize: "20px"} }><Link to='/MyRoutines'>My Routines</Link></button>
                     </>
                 ) : (
                     <>

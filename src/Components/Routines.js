@@ -16,8 +16,9 @@ import { routinesData } from "../Requests";
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', border: "solid black"  }}>
         {routines.map((routine) => (
           <div key={routine.id} style={{ marginLeft: '10px' }}>
-            <h2>{ routine.name}</h2>
-            <p>{routine.goal}</p>
+            <h2>{routine.name}</h2>
+            <p>Goal: {routine.goal}</p>
+            <p>Creator: {routine.creatorName}</p>
           </div>
         ))}
       </div>

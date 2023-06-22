@@ -24,7 +24,7 @@ const fetchActivities = async () => {
   };
 
 
-async function renderActivities() {
+    export default function activities() {
     const [activities, setActivities] = useState([]);
     useEffect(() => {
       const getActivities = async () => {
@@ -37,12 +37,10 @@ async function renderActivities() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
         {activities.map((activity) => (
           <div key={activity.id} style={{ marginLeft: '10px' }}>
-            <h2>{activity.name}</h2>
-            <p>{activity.description}</p>
+            <h2>Name: {activity.name}</h2>
+            <p>Description: {activity.description}</p>
           </div>
         ))}
       </div>
     );
   }
-
-  export default renderActivities

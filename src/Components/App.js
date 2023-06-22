@@ -62,6 +62,9 @@ function App() {
             />
             <Routes>
                 <Route 
+                    path='/' 
+                />
+                <Route 
                     path='/register' 
                     element={<Register setToken={setToken} />}
                 />
@@ -70,7 +73,7 @@ function App() {
                     element={<Login setToken={setToken} navigate={navigate} />}
                 />
                 <Route 
-                    path='/' 
+                    path='/routines' 
                     element={<Routines />}
                 />
                 <Route 
@@ -79,7 +82,7 @@ function App() {
                 />
                 <Route 
                     path='/MyRoutines' 
-                    element={<MyRoutines />}
+                    element={<MyRoutines token={token} getRoutines={getRoutines}/>}
                 />
             </Routes>
         </div>
