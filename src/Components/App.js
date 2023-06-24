@@ -66,7 +66,7 @@ function App() {
                 />
                 <Route 
                     path='/register' 
-                    element={<Register setToken={setToken} />}
+                    element={<Register setToken={setToken} navigate={navigate} />}
                 />
                 <Route 
                     path='/login' 

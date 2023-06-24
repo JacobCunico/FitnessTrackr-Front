@@ -12,7 +12,7 @@ function Login({ setToken, navigate }) {
             
             const results = await login(user);
     
-            if (results) {
+            if (!results.error) {
                 console.log("LOG FROM LOGIN", results)
                 setToken(results.token);
                 window.localStorage.setItem('token', results.token);

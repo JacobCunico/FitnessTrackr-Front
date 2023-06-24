@@ -12,9 +12,12 @@ function Register({ setToken }) {
         
         const results = await registerUser(user);
 
-        if (results.success) {
-            setToken(results.data.token);
-            window.localStorage.setItem('token', results.data.token);
+        if (results.error) {
+            alert('Passwords must be atleast eight characters long. (Username may already be taken)');
+        } else {
+            setToken(results.token);
+            window.localStorage.setItem('token', results.token);
+            alert('Registration Successfull');
         }
     }
 

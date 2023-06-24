@@ -52,7 +52,8 @@ function MyRoutines( { token, user }  ) {
             <button type='submit'>Create Routine</button>
         </form>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', border: "solid black"  }}>
-        {routines.map((routine) => (
+        {
+        routines.map((routine) => (
           <div key={routine.id} style={{ marginLeft: '10px' }}>
             <h2>{routine.name}</h2>
             <p>Goal: {routine.goal}</p>
