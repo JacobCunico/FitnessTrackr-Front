@@ -114,9 +114,9 @@ export const activitiesPost = async (token, newActivity) => {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify({
+      body: JSON.stringify(
         newActivity
-    }) 
+    ) 
     });
 
     const result = await response.json();
@@ -199,9 +199,9 @@ export const routinesPost = async (token, newRoutine) => {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify({
+      body: JSON.stringify(
         newRoutine
-    })
+    )
     });
     const result = await response.json();
     console.log(result);

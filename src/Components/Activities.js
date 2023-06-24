@@ -1,27 +1,21 @@
-// will handle the front end functions and interactions from the ajax requests
-//the componeents bascially interact with the practicle aplications of the ajax requests
-// alot of interacting with the token
-
-import React from 'react';
-
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { activitiesPost, activitiesData } from '../Requests';
 
   
 
 
-  export default function activities(token) {
+  export default function activities({ token }) {
 
     const [activities, setActivities] = useState([]);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('')
 
-    useEffect(() => {
+    const getActivities = async () => {
+      const result = await activitiesData();
+      setActivities(result);
+    };
 
-      const getActivities = async () => {
-        const result = await activitiesData();
-        setActivities(result);
-      };
+    useEffect(() => {
 
       getActivities();
 
@@ -33,13 +27,14 @@ import { activitiesPost, activitiesData } from '../Requests';
       const newActivity = {name, description}
 
       const results = await activitiesPost(token, newActivity)
-      console.log("LOG FROM MY", results)
+      console.log("LOG FROM ACTIVITIES", results)
 
-      if (results.success) {
-          activitiesData();
-      } else (
-          alert("Activity Already Exists (make sure you are logged in)")
-      )
+      if (results.error) {
+        alert("Activity Already Exists (make sure you are logged in)")
+      } else {
+        getActivities();
+        alert("Activity Created")
+      }
   };
 
     return (

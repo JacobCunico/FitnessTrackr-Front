@@ -10,13 +10,14 @@ function MyRoutines({ token, getRoutines }) {
         const newRoutine = {name, goal}
 
         const results = await routinesPost(token, newRoutine)
-        console.log("LOG FROM MY", results)
+        console.log("LOG FROM MYROUTINES", results)
 
-        if (results.success) {
-            getRoutines();
-        } else (
+        if (results.error) {
             alert("Routine Name Already Exists")
-        )
+        } else {
+            getRoutines();
+            alert("Routine Created")
+        }
     };
 
     return (
