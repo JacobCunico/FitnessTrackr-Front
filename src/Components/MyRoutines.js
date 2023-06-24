@@ -9,6 +9,8 @@ function MyRoutines( { token, user }  ) {
     const getUserRoutines = async () => {
         const result = await usersRoutines(token, user.username);
         setRoutines(result);
+        console.log("TOKEN", token) 
+
       };
   
       useEffect(() => {
@@ -49,16 +51,17 @@ function MyRoutines( { token, user }  ) {
             />
             <button type='submit'>Create Routine</button>
         </form>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-        {activities.map((activity) => (
-          <div key={activity.id} style={{ marginLeft: '10px' }}>
-            <h2>Name: {activity.name}</h2>
-            <p>Description: {activity.description}</p>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', border: "solid black"  }}>
+        {routines.map((routine) => (
+          <div key={routine.id} style={{ marginLeft: '10px' }}>
+            <h2>{routine.name}</h2>
+            <p>Goal: {routine.goal}</p>
+            <p>Count/Duration: {routine.count}{routine.duration}</p>
+            <p>Creator: {routine.creatorName}</p>
           </div>
         ))}
       </div>
         </>
-        
         
     )
 }
