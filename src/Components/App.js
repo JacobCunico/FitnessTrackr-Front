@@ -30,7 +30,7 @@ function App() {
     
         async function getUser() {
             const results = await usersMe(token);
-            if (results.success) {
+            if (!results.error) {
                 setUser(results)
             }
         }
@@ -48,7 +48,7 @@ function App() {
         }, [token])
     
         if (isLoggedIn) {
-            console.log('user is logged in')
+            console.log('user is logged in');
         } else ( 
             console.log('user is logged out')
         )
@@ -82,7 +82,7 @@ function App() {
                 />
                 <Route 
                     path='/MyRoutines' 
-                    element={<MyRoutines token={token} getRoutines={getRoutines}/>}
+                    element={<MyRoutines token={token} user={user}/>}
                 />
             </Routes>
         </div>

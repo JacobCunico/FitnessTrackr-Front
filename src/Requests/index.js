@@ -1,5 +1,5 @@
 // ajax requests make the requests to the api to be used by the files in componenets
-const BASE_URL = `http://fitnesstrac-kr.herokuapp.com/api`;
+const BASE_URL = `https://fitnesstrac-kr.herokuapp.com/api`;
 
 
 //-------------USERS----
@@ -67,7 +67,7 @@ export const usersMe = async (token) => {
 
 //usersMe();
 
-export const usersRoutines = async (username, token) => {
+export const usersRoutines = async ( token, username) => {
 
   try {
     const response = await fetch(`${BASE_URL}/users/${username}/routines`, {
